@@ -137,6 +137,7 @@ async function analyze() {
   }
   $("analyze").disabled = true;
   statusEl.textContent = "Checking the message...";
+  $("result").classList.add("hidden");
   try {
     const result = await ensureModel().generateContent(
       GUARD_BRIEF + "\n\nMessage to check:\n\"\"\"\n" + text + "\n\"\"\""
@@ -183,6 +184,12 @@ function init() {
     });
   });
   $("analyze").addEventListener("click", analyze);
+  const demoParam = new URLSearchParams(self.location.search).get("demo");
+  if (demoParam) {
+    const idx = Number(demoParam) - 1;
+    $("message").value = SAMPLES[idx] || SAMPLES[0];
+    setTimeout(analyze, 600);
+  }
   deviceModelStatus().then((status) => {
     if (status === "available") $("devicestate").textContent = "Local model: ready on this browser.";
     else if (status === "downloading" || status === "downloadable") $("devicestate").textContent = "Local model: available to download on this browser.";
