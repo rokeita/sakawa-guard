@@ -148,13 +148,20 @@ async function analyze() {
       statusEl.textContent = "The model replied in plain text this time. Try again.";
       return;
     }
-    let source = "ON_DEVICE";
+    let source = "";
     try {
-      if (result.response.inferenceSource) source = result.response.inferenceSource;
+      if (result.response.inferenceSource) source = String(result.response.inferenceSource);
     } catch (srcErr) {
       /* older SDK */
     }
-    show(data, source);
+    if (source.indexOf("CLOUD") !== -1) {
+      show(data, "IN_CLOUD");
+    } else if (source.indexOf("DEVICE") !== -1) {
+      show(data, "ON_DEVICE");
+    } else {
+      const localStatus = await deviceModelStatus();
+      show(data, localStatus === "available" ? "ON_DEVICE" : "IN_CLOUD");
+    }
     statusEl.textContent = "";
   } catch (err) {
     statusEl.textContent = "Something went wrong: " + ((err && err.message) || err);
