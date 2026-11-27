@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sakawa Guard, on-device scam checker for Ghana</title>
+<meta name="description" content="Paste a suspicious SMS, WhatsApp or email message and Sakawa Guard tells you if it is a scam. A local AI on your device reads it first; the cloud only steps in when needed.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Sakawa Guard</h1>
+    <p class="tagline">Paste any suspicious message (SMS, WhatsApp, email). A local AI on your device reads it first, private and offline-friendly. The cloud only steps in when your device cannot.</p>
+  </header>
+
+  <div id="setup" class="setup hidden">
+    This build needs its Firebase keys. Add your web app config to <code>docs/firebase-config.js</code>, then reload.
+  </div>
+
+  <label for="message">Suspicious message</label>
+  <textarea id="message" rows="7" placeholder="Paste the message here..."></textarea>
+
+  <div class="samples">
+    Try one:
+    <button class="sample" data-i="0">MoMo promo</button>
+    <button class="sample" data-i="1">Fake bank link</button>
+    <button class="sample" data-i="2">A normal text</button>
+  </div>
+
+  <button id="analyze" class="primary">Check this message</button>
+  <p id="status" role="status" aria-live="polite"></p>
+
+  <section id="result" class="hidden">
+    <div class="result-head">
+      <span id="verdict" class="badge"></span>
+      <span id="confidence"></span>
+    </div>
+    <p id="category"></p>
+    <h2>Red flags</h2>
+    <ul id="flags"></ul>
+    <h2>What to do</h2>
+    <ul id="advice"></ul>
+    <p id="explain"></p>
+    <p id="source" class="source"></p>
+  </section>
+
+  <p id="devicestate" class="devicestate"></p>
+
+  <footer>
+    Built with <strong>Firebase AI Logic hybrid inference</strong> for #BuildHybridAI 2026.
+    On-device checks use Gemini Nano through the Chrome Prompt API; the fallback uses Gemini in the cloud.
+    Text messages are analysed locally whenever possible, so they never have to leave your phone.
+  </footer>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
