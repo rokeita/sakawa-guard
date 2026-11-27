@@ -14,3 +14,7 @@ export const firebaseConfig = {
 // enforced for Firebase AI Logic, so this token lets the hosted build call the
 // cloud fallback. Rotate before going to production.
 export const appCheckDebugToken = "5F9BDFED-AOCA-4ECE-86AE-F227EB711851";
+
+// reCAPTCHA Enterprise site key for production App Check (not needed for the
+// demo build, which runs on the debug token above).
+export const reCaptchaSiteKey = "";
