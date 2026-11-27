@@ -11,7 +11,9 @@ const GUARD_BRIEF =
   "and raffles, phishing links, fake job or investment offers, and impersonation of banks, " +
   "telecom networks (MTN, Telecel, AirtelTigo) or government bodies. Judge messages against " +
   "common Ghanaian fraud patterns, but stay fair: do not label a message a scam without " +
-  "concrete warning signs. Reply only with the structured fields.";
+  "concrete warning signs. Ordinary personal or business communication is safe even when it " +
+  "mentions mobile money, so give the safe verdict whenever no concrete warning sign is " +
+  "present, and keep its confidence moderate. Reply only with the structured fields.";
 
 const SAMPLES = [
   "Congratulations! Your MTN MoMo number has won GHS 5,000 in the MTN anniversary promo. Send a GHS 50 activation fee to 0551234567 to claim your reward. Call 0244123456 now before it expires.",
