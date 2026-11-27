@@ -12,13 +12,13 @@ const GUARD_BRIEF =
   "telecom networks (MTN, Telecel, AirtelTigo) or government bodies. Judge messages against " +
   "common Ghanaian fraud patterns, but stay fair: do not label a message a scam without " +
   "concrete warning signs. Ordinary personal or business communication is safe even when it " +
-  "mentions mobile money, so give the safe verdict whenever no concrete warning sign is " +
-  "present, and keep its confidence moderate. Reply only with the structured fields.";
+  "mentions mobile money. When no concrete warning sign is present, the verdict MUST be " +
+  "safe, never suspicious. Reply only with the structured fields.";
 
 const SAMPLES = [
   "Congratulations! Your MTN MoMo number has won GHS 5,000 in the MTN anniversary promo. Send a GHS 50 activation fee to 0551234567 to claim your reward. Call 0244123456 now before it expires.",
   "Your account will be blocked in 24 hours. Click https://gh-bank-secure-login.com/update to verify your PIN and mobile money details immediately.",
-  "Hi Ama, I have sent the GHS 200 for the fabrics. The MoMo receipt is on my WhatsApp status. Thank you!"
+  "Are we still on for lunch tomorrow at 1pm? Kofi says hi."
 ];
 
 const verdictSchema = Schema.object({
